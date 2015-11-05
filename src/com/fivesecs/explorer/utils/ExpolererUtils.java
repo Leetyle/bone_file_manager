@@ -28,4 +28,19 @@ public class ExpolererUtils {
 		return fileList;
 	}
 	
+	public static List<FileItem> getFileItemList(File filePath) {
+		List<FileItem> fileItemList = new ArrayList<FileItem>();
+		if(filePath.toString().equals(File.separator)){
+			for(File file : filePath.listFiles()) {
+				fileItemList.add(new FileItem(file, false));
+			}
+		}else {
+			for(File file : filePath.listFiles()) {
+				fileItemList.add(new FileItem(file, false));
+			}
+			fileItemList.add(0, new FileItem(new File(filePath.getParent()), false));
+		}		
+		return fileItemList;
+	}
+	
 }

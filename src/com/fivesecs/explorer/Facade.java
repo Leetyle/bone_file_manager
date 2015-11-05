@@ -34,6 +34,7 @@ public class Facade extends Activity {
 		FragmentManager fm = getFragmentManager();
 		FragmentTransaction fragTransaction = fm.beginTransaction();
 		fragTransaction.replace(R.id.container_for_content_listview, content_fragment, "current_content_frag");
+//		fragTransaction.addToBackStack(null);
 		fragTransaction.commit();
 	}
 	

@@ -43,8 +43,8 @@ public final class R {
         public static final int container_for_content_listview=0x7f090006;
         public static final int img_item_icon=0x7f090001;
         public static final int listView_for_dir=0x7f090007;
-        public static final int txt_item_content=0x7f090003;
-        public static final int txt_item_date=0x7f090004;
+        public static final int txt_item_content=0x7f090004;
+        public static final int txt_item_date=0x7f090003;
         public static final int txt_item_name=0x7f090002;
         public static final int txt_path=0x7f090005;
     }

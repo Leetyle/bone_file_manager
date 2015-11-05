@@ -1,14 +1,12 @@
 package com.fivesecs.explorer;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
-import android.content.Context;
+import com.fivesecs.explorer.utils.FileItem;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,14 +26,16 @@ class FileListAdapter extends BaseAdapter {
 	private Bitmap mOthers;
 	private Bitmap mTxt;
 	private Bitmap mWeb;
+	List<FileItem> mFileItems;
 
-	private Context mContext;
-	private List<File> mFiles;
+	private DirFragment mContext;
+	// private List<File> mFiles;
 
-	public FileListAdapter(Context context, List<File> files) {
-		mFiles = files;
+	public FileListAdapter(DirFragment dirFragment, List<FileItem> fileItems) {
+		// mFiles = files;
+		mFileItems = fileItems;
 
-		mContext = context;
+		mContext = dirFragment;
 
 		mImage = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
 		mAudio = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
@@ -49,11 +49,11 @@ class FileListAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		return mFiles.size();
+		return mFileItems.size();
 	}
 
 	public Object getItem(int position) {
-		return mFiles.get(position);
+		return mFileItems.get(position);
 	}
 
 	public long getItemId(int position) {
@@ -63,32 +63,48 @@ class FileListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup viewgroup) {
 		View v = convertView;
 		ViewHolder viewHolder = null;
+		
+		/**
+		 * @author Bone
+		 * Get the ViewHolder;
+		 */
 		if (convertView == null) {
 			viewHolder = new ViewHolder();
-			LayoutInflater mLI = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater mLI = mContext.getActivity().getLayoutInflater();
 			v = mLI.inflate(R.layout.dir_list_item, null);
 			viewHolder.mIV = (ImageView) v.findViewById(R.id.img_item_icon);
 			viewHolder.mTV = (TextView) v.findViewById(R.id.txt_item_name);
-			viewHolder.mCB = (CheckBox)v.findViewById(R.id.chk_item_selecting);
+			viewHolder.mCB = (CheckBox) v.findViewById(R.id.chk_item_selecting);
+			viewHolder.mCB.setOnClickListener((DirFragment) mContext);
+//			viewHolder.mCB.setOnCheckedChangeListener((DirFragment) mContext);
 			v.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) v.getTag();
 		}
-		
-		viewHolder.mCB.setChecked(false);
 
+		/**
+		 * @author Bone
+		 *  Set list item state by viewHolder;
+		 */
+		// Set the check box state.
+		viewHolder.mCB.setChecked(mFileItems.get(position).isSelected());
+
+		// Set the file name.
 		if (DirFragment.path.equals(File.separator)) {
-			viewHolder.mTV.setText(mFiles.get(position).getName());
+			viewHolder.mTV.setText(mFileItems.get(position).getFile().getName());
 		} else {
-			if(position == 0) {
+			if (position == 0) {
 				viewHolder.mTV.setText("..");
-			} else viewHolder.mTV.setText(mFiles.get(position).getName());
+			} else
+				viewHolder.mTV.setText(mFileItems.get(position).getFile().getName());
 		}
-		if (mFiles.get(position).isDirectory()) {
+		
+		// Set file icons.
+		if (mFileItems.get(position).getFile().isDirectory()) {
 			viewHolder.mIV.setImageBitmap(mFolder);
 		} else {
-			String fileName = mFiles.get(position).getName();
-			
+			String fileName = mFileItems.get(position).getFile().getName();
+
 			if (fileName.contains(".")) {
 				String fileEnds = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length() - 1);
 				if (fileEnds.equals("m4a") || fileEnds.equals("mp3") || fileEnds.equals("mid") || fileEnds.equals("xmf")
