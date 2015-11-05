@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="6dp"
+    android:descendantFocusability="blocksDescendants" >
+    <CheckBox 
+        android:id="@+id/chk_item_selecting"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true" 
+        android:layout_centerVertical="true"
+        />
+    
+    <ImageView 
+        android:id="@+id/img_item_icon"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+       	android:layout_toRightOf="@id/chk_item_selecting"
+       	android:src="@drawable/folder"
+       	android:layout_centerVertical="true"/>
+    
+    <TextView 
+        android:id="@+id/txt_item_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+       	android:layout_alignTop="@id/img_item_icon"
+       	android:layout_toRightOf="@id/img_item_icon"
+       	
+       	android:text="Tesing"
+       	android:layout_marginTop="5dp"/>
+    
+    <TextView 
+        android:id="@+id/txt_item_content"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/txt_item_name"
+        android:layout_toRightOf="@id/img_item_icon"
+        android:text="Tesing"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"/>
+    
+    <TextView 
+        android:id="@+id/txt_item_date"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+       	android:layout_alignParentRight="true"
+       	android:text="Tesing"
+       	android:textSize="12dp"
+       	android:textStyle="italic"
+       	
+       	android:layout_alignTop="@id/img_item_icon"
+       	android:layout_marginTop="5dp"
+        android:paddingRight="15dp"/>
+
+</RelativeLayout>
