@@ -11,50 +11,70 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int colorAccent=0x7f040002;
-        public static final int colorPrimary=0x7f040000;
-        public static final int colorPrimaryDark=0x7f040001;
+        public static final int accent=0x7f040002;
+        public static final int divider=0x7f040007;
+        public static final int icons=0x7f040006;
+        public static final int list_item_text=0x7f040003;
+        public static final int primary=0x7f040000;
+        public static final int primaryDark=0x7f040001;
+        public static final int primary_text=0x7f040004;
+        public static final int secondary_text=0x7f040005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
-
-         Example customization of dimensions originally defined in res/values/dimens.xml
-         (such as screen margins) for screens with more than 820dp of available width. This
-         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
-    
          */
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
         public static final int apk=0x7f020000;
-        public static final int backup=0x7f020001;
+        public static final int audio=0x7f020001;
         public static final int folder=0x7f020002;
-        public static final int ic_filter_hdr_black_48dp=0x7f020003;
-        public static final int music=0x7f020004;
-        public static final int root=0x7f020005;
-        public static final int unknown=0x7f020006;
-        public static final int video=0x7f020007;
-        public static final int videos=0x7f020008;
+        public static final int ic_close_3x=0x7f020003;
+        public static final int ic_content_cut_black_36dp=0x7f020004;
+        public static final int ic_search_18pt_3x=0x7f020005;
+        public static final int ic_share_3x=0x7f020006;
+        public static final int icon=0x7f020007;
+        public static final int others=0x7f020008;
+        public static final int picture=0x7f020009;
+        public static final int text=0x7f02000a;
+        public static final int video=0x7f02000b;
+        public static final int web=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
+        public static final int action_actionMode_copy=0x7f09000f;
+        public static final int action_actionMode_delete=0x7f090010;
+        public static final int action_actionMode_search=0x7f09000e;
+        public static final int action_copy=0x7f090012;
+        public static final int action_cut=0x7f090013;
+        public static final int action_delete=0x7f090014;
+        public static final int action_search=0x7f090011;
+        public static final int c_chk_item_selecting=0x7f090008;
+        public static final int c_img_item_icon=0x7f090009;
+        public static final int c_txt_item_content=0x7f09000c;
+        public static final int c_txt_item_date=0x7f09000b;
+        public static final int c_txt_item_name=0x7f09000a;
         public static final int chk_item_selecting=0x7f090000;
         public static final int container_for_content_listview=0x7f090006;
+        public static final int fileListItem=0x7f090007;
         public static final int img_item_icon=0x7f090001;
-        public static final int listView_for_dir=0x7f090007;
+        public static final int listView_for_dir=0x7f09000d;
+        public static final int toolbar=0x7f090005;
         public static final int txt_item_content=0x7f090004;
         public static final int txt_item_date=0x7f090003;
         public static final int txt_item_name=0x7f090002;
-        public static final int txt_path=0x7f090005;
     }
     public static final class layout {
-        public static final int dir_list_item=0x7f030000;
-        public static final int facade=0x7f030001;
-        public static final int layout_content_fragment=0x7f030002;
+        public static final int bottom=0x7f030000;
+        public static final int compound_list_item=0x7f030001;
+        public static final int dir_list_item=0x7f030002;
+        public static final int facade=0x7f030003;
+        public static final int file_list_item=0x7f030004;
+        public static final int layout_content_fragment=0x7f030005;
     }
     public static final class menu {
-        public static final int facade=0x7f080000;
+        public static final int dir_list_action_menu=0x7f080000;
+        public static final int facade=0x7f080001;
     }
     public static final class string {
         public static final int action_settings=0x7f060002;
@@ -66,17 +86,6 @@ public final class R {
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 

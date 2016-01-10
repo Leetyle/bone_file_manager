@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fivesecs.explorer.Facade" >
+
+    <item
+        android:id="@+id/action_actionMode_search"
+        android:icon="@drawable/ic_search_18pt_3x"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Search"/>
+    <item
+        android:id="@+id/action_actionMode_copy"
+        android:icon="@drawable/ic_share_3x"
+        android:orderInCategory="200"
+        android:showAsAction="always"
+        android:title="Share"/>
+    <item
+        android:id="@+id/action_actionMode_delete"
+        android:icon="@drawable/ic_close_3x"
+        android:orderInCategory="300"
+        android:showAsAction="always"
+        android:title="Delete"/>
+
+</menu>

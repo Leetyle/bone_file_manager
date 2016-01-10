@@ -15,7 +15,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-class FileListAdapter extends BaseAdapter {
+public class FileListAdapter extends BaseAdapter {
 
 	private Bitmap mImage;
 	private Bitmap mAudio;
@@ -37,15 +37,15 @@ class FileListAdapter extends BaseAdapter {
 
 		mContext = dirFragment;
 
-		mImage = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
-		mAudio = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
-		mVideo = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
-		mApk = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
-		mTxt = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
-		mOthers = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
+		mImage = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.picture);
+		mAudio = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.audio);
+		mVideo = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.video);
+		mApk = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.apk);
+		mTxt = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.text);
+		mOthers = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.others);
 		mFolder = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.folder);
-		mRar = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
-		mWeb = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_filter_hdr_black_48dp);
+		mRar = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.apk);
+		mWeb = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.web);
 	}
 
 	public int getCount() {
@@ -59,14 +59,14 @@ class FileListAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return position;
 	}
+	
 
 	public View getView(int position, View convertView, ViewGroup viewgroup) {
 		View v = convertView;
 		ViewHolder viewHolder = null;
-		
+
 		/**
-		 * @author Bone
-		 * Get the ViewHolder;
+		 * @author Bone Get the ViewHolder;
 		 */
 		if (convertView == null) {
 			viewHolder = new ViewHolder();
@@ -76,21 +76,21 @@ class FileListAdapter extends BaseAdapter {
 			viewHolder.mTV = (TextView) v.findViewById(R.id.txt_item_name);
 			viewHolder.mCB = (CheckBox) v.findViewById(R.id.chk_item_selecting);
 			viewHolder.mCB.setOnClickListener((DirFragment) mContext);
-//			viewHolder.mCB.setOnCheckedChangeListener((DirFragment) mContext);
+			// viewHolder.mCB.setOnCheckedChangeListener((DirFragment)
+			// mContext);
 			v.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) v.getTag();
 		}
 
 		/**
-		 * @author Bone
-		 *  Set list item state by viewHolder;
+		 * @author Bone Set list item state by viewHolder;
 		 */
 		// Set the check box state.
 		viewHolder.mCB.setChecked(mFileItems.get(position).isSelected());
 
 		// Set the file name.
-		if (DirFragment.path.equals(File.separator)) {
+		if (mContext.getPath().equals(File.separator)) {
 			viewHolder.mTV.setText(mFileItems.get(position).getFile().getName());
 		} else {
 			if (position == 0) {
@@ -98,7 +98,7 @@ class FileListAdapter extends BaseAdapter {
 			} else
 				viewHolder.mTV.setText(mFileItems.get(position).getFile().getName());
 		}
-		
+
 		// Set file icons.
 		if (mFileItems.get(position).getFile().isDirectory()) {
 			viewHolder.mIV.setImageBitmap(mFolder);
@@ -106,7 +106,7 @@ class FileListAdapter extends BaseAdapter {
 			String fileName = mFileItems.get(position).getFile().getName();
 
 			if (fileName.contains(".")) {
-				String fileEnds = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length() - 1);
+				String fileEnds = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length());
 				if (fileEnds.equals("m4a") || fileEnds.equals("mp3") || fileEnds.equals("mid") || fileEnds.equals("xmf")
 						|| fileEnds.equals("ogg") || fileEnds.equals("wav")) {
 					viewHolder.mIV.setImageBitmap(mVideo);

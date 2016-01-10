@@ -2,22 +2,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.fivesecs.explorer.Facade" >
+    tools:context="com.fivesecs.explorer.MainActivity" >
 
-    <TextView 
-        android:id="@+id/txt_path"
-        android:layout_height="wrap_content"
+    <Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:textSize="20sp"/>
-        
-    <FrameLayout 
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
         android:id="@+id/container_for_content_listview"
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_below="@id/txt_path" ></FrameLayout>
-     
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fileListItem"
+        android:layout_below="@id/toolbar" />
+
+    <com.fivesecs.explorer.FileListItem
+        android:id="@+id/fileListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="6dp"
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:descendantFocusability="blocksDescendants"
+        android:paddingBottom="1dp"
+        android:paddingTop="5dp" >
+
+    </com.fivesecs.explorer.FileListItem>
+
 </RelativeLayout>
